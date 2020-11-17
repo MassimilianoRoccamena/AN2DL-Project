@@ -5,4 +5,5 @@ data1/*
 log1/*
 results1/*
 
-mininf/data*
+mining/data*
+mining/.deep_mine.ows.swp.p
