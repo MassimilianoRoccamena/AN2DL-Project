@@ -5,5 +5,6 @@ data1/*
 log1/*
 results1/*
 
-mining/data/*
-mining/.deep_mine.ows.swp.p
+mining1/data/*
+!mining1/data/clean.py
+mining1/.deep_mine.ows.swp.p
