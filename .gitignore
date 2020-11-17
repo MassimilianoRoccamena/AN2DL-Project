@@ -4,3 +4,5 @@ __pycache__/
 data1/*
 log1/*
 results1/*
+
+mininf/data*
