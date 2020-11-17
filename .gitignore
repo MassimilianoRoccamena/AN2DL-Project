@@ -6,5 +6,4 @@ log1/*
 results1/*
 
 mining1/.deep_mine.ows.swp.p
-mining1/data/*
-!mining1/data/*.py
+mining1/models/*
