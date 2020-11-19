@@ -12,7 +12,7 @@ Each stage is driven by some instance of deep learning architecture
 3. Inception & ResNet
 4. InceptionResNet & NASNetLarge
 
-In each stage wee also performed some hyperoptimization and comparison with previous architectures, focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
+In each stage we also performed some hyperoptimization and comparison with previous architectures, focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
 
 In particular, we started by building our small CNN architectures from scratch focusing on the repetition of convolution and pooling layers, then exploring different patterns
 
@@ -32,17 +32,6 @@ During the whole process learning rate was almost always equal to 1e-4, in gener
 | Stage 3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
 | Stage 4 | We increased images size to 299x299, but we also tried higher resolution images up to 331x331; we noticed fine tuned models were in general more performing than the others |
 
-## Performances
-Here is listed a summary of accuracy values measured
-
-| Architecture | Range |
-| :----: | :----: |
-| Basic CNN | 60%, 70% |
-| VGG | 75%, 85% |
-| Inception & ResNet | 85%, 90% |
-| InceptionResNet & NASNet | 90%, 93% |
-| Hybrid model | 91%, 94% |
-
 Here is reported a learning comparison visualization between some Inception (M1) and InceptionResNet (M2) based models
 
 | ![](cmp_train.PNG) | 
@@ -52,6 +41,18 @@ Here is reported a learning comparison visualization between some Inception (M1)
 | ![](cmp_val.PNG) | 
 |:--:| 
 | *validation accuracy between M1 (blue) and M2 (azure), with smoothing 0.5* |
+
+## Testing
+
+Here is listed a summary of categorical accuracy values measured on test set
+
+| Architecture | Range |
+| :----: | :----: |
+| Basic CNN | 60%, 70% |
+| VGG | 75%, 85% |
+| Inception & ResNet | 85%, 90% |
+| InceptionResNet & NASNet | 90%, 93% |
+| Hybrid model | 91%, 94% |
 
 ## Optimal solution
 
