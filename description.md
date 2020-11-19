@@ -13,11 +13,11 @@ Each stage is driven by some instance of deep learning architecture, performing 
 4. InceptionResNet & NASNetLarge
 5. Hybrid system
 
-In particular, we started by building our small architectures from scratch focusing on the repetition of convolution and pooling layers, then exploring different patterns
+In particular, we started by building our small CNN architectures from scratch focusing on the repetition of convolution and pooling layers, then exploring different patterns
 
 Then we started using transfer learning from stage 2 with VGG architecture
 
-In the end, we've taken the best deep encoder found and tried more general type of classifiers on top of it, and we also visualized this deep learned transformation on the training set
+In the end, we've taken the best deep encoder found and tried more general type of classifiers on top of it, and we also visualized best deep encoder's transformation on the training set
 
 ## Learning
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed.
