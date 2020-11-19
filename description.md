@@ -20,7 +20,7 @@ More advanced architectures are tested, in particular Inception and ResNet model
 Most advanced models measured was the ones based on InceptionResNet and NASNetLarge architectures.
 
 ### Stage 5 - Hybrid model
-Optimal models measured were based on the best deep encoder found and SVM or Random Forest as an optimized classifier on top of it; we also visualized the given best deep transformation found of the images
+Latest models built were based on the best deep encoder found and a heterogeneous model on top of it as an optimized classifier; we also visualized the given best deep transformation found of the images
 
 ## Learning process
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed.
@@ -32,10 +32,10 @@ During the whole process learning rate was almost always equal to 1e-4, in gener
 | S3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
 | S4 | We increased images size to 299x299, we noticed fine tuned models were in general more performing than the others; also we tried higher resolution images up to 331x331 |
 
-## Performances
-Measured accuracy ranges on test set based on different architectures used:
+## Measured performances
+Here is listed a summary of accuracy values observed
 
-| Architecture | Accuracy |
+| Architecture | Range |
 | ------ | ------ |
 | Basic CNN | 60%, 70% |
 | VGG | 75%, 85% |
@@ -43,9 +43,21 @@ Measured accuracy ranges on test set based on different architectures used:
 | InceptionResNet & NASNet | 90%, 93% |
 | Hybrid model | 91%, 94% |
 
+Here is reported a learning comparison visualization between some Inception (M1) and InceptionResNet (M2) based models
+
+| ![](cmp_train.PNG) | 
+|:--:| 
+| *training loss between M1 (orange) and M2 (red), with smoothing 0.2* |
+
+| ![](cmp_val.PNG) | 
+|:--:| 
+| *validation accuracy between M1 (blue) and M2 (azure), with smoothing 0.5* |
+
 ## Optimal solution
 
-Our optimal model was an InceptionResNet encoder with avg pooling, dropout 0.6 and 3 softmax; we optimized the classifier (dropout + softmax) on top of optimal trained deep encoder with a SVM classifier, gaining +0.7 accuracy on test set
+Our optimal neural network was an InceptionResNet encoder (fine tuned from 15th layer) with avg pooling at the output, then 0.6 dropout and 3 softmax; it was early stopped on validation loss and trained on augmented data with validation split 17.5%
+
+Our optimal model was obtained by replacing the classifier (dropout + softmax) on top of InceptionResNet encoder of previous network with an optimized SVM (also Random Forest), gaining +0.7% accuracy on test set
 
 | ![](PCA.PNG) | 
 |:--:| 
@@ -57,7 +69,12 @@ Our optimal model was an InceptionResNet encoder with avg pooling, dropout 0.6 a
 
 | ![](missclassified.PNG) | 
 |:--:| 
-| *2D informative projection of missclassified instances of SVM classifier* |
+| *2D informative projection of missclassified instances of optimal SVM classifier* |
 
 ## Final considerations
-We have understood how important is the underlying deep learning architecture for the overall quality of the model: for example we found Inception architecture having high performance gap with previous architectures, mainly due to the Inception module giving better scaling semantics to images.
+We have understood how important is the underlying deep learning architecture for the overall quality of the problem solution
+- We have found Inception architectures having high performance gap with previous architectures, mainly due to the Inception module giving better scaling semantics to images.
+
+Also we can highlight that data augmentation and fine tuning can greatly impact the overall comprehension of the network of the problem
+
+We also experienced how making an ensemble of deep learned features using high dropout leads to good learning of the problem
