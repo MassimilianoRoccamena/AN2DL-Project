@@ -26,17 +26,17 @@ Latest models built were based on the best deep encoder found and a heterogeneou
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed.
 
 | Stage | Description |
-| ------ | ------ |
-| S1 | We started focusing on early stopped learning, but also tried some longer convergence train or cross validation; also l2 regularization and dropout on classifier are tested to counter some overfitting; also data augmentation is tested from the start, and tuning image transformations parameters; images size were fixed at 255x255x3 |
-| S2 | As soon as we used transfer learning we've tried also to hyperoptimize parameters such as fine tuning and encoder parameters; with more experience we find early stopping pretty much very effective; also we started exploring each specific encoder architecture preprocessing |
-| S3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
-| S4 | We increased images size to 299x299, we noticed fine tuned models were in general more performing than the others; also we tried higher resolution images up to 331x331 |
+| :----: | :----: |
+| Stage 1 | We started focusing on early stopped learning, but also tried some longer convergence train or cross validation; also l2 regularization and dropout on classifier are tested to counter some overfitting; also data augmentation is tested from the start, and tuning image transformations parameters; images size were fixed at 255x255x3 |
+| Stage 2 | As soon as we used transfer learning we've tried also to hyperoptimize parameters such as fine tuning and encoder parameters; with more experience we find early stopping pretty much very effective; also we started exploring each specific encoder architecture preprocessing |
+| Stage 3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
+| Stage 4 | We increased images size to 299x299, we noticed fine tuned models were in general more performing than the others; also we tried higher resolution images up to 331x331 |
 
 ## Measured performances
 Here is listed a summary of accuracy values observed
 
 | Architecture | Range |
-| ------ | ------ |
+| :----: | :----: |
 | Basic CNN | 60%, 70% |
 | VGG | 75%, 85% |
 | Inception & ResNet | 85%, 90% |
