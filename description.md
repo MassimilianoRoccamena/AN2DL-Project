@@ -47,17 +47,14 @@ Measured accuracy ranges on test set based on different architectures used:
 
 Our optimal model was an InceptionResNet encoder with avg pooling, dropout 0.6 and 3 softmax; we optimized the classifier (dropout + softmax) on top of optimal trained deep encoder with a SVM classifier, gaining +0.7 accuracy on test set
 
-2D PCA visualization of optimal deep encoder transformation
-
 ![PCA](PCA.PNG)
-
-2D t-SNE visualization of optimal deep encoder transformation
+*2D PCA visualization of optimal deep encoder transformation*
 
 ![t-SNE](t-SNE.PNG)
-
-2D informative projection of missclassified instances of SVM classifier
+*2D t-SNE visualization of optimal deep encoder transformation*
 
 ![missclassified](missclassified.PNG)
+*2D informative projection of missclassified instances of SVM classifier*
 
 ## Final considerations
 We have understood how important is the underlying deep learning architecture for the overall quality of the model: for example we found Inception architecture having high performance gap with previous architectures, mainly due to the Inception module giving better scaling semantics to images.
