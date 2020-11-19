@@ -1,14 +1,14 @@
 # Homework 1
 The project was made by Massimiliano Roccamena, Abednego Wamuhindo, Muhammad Irfan Mas'udi.
 
-## Basic workflow
+## Overview
 
 The overall project is splitted in multiple stages, performed in parallel by each member optimizing Colab GPU resources
 
 Each stage is driven by some instance of deep learning architecture, performing also some hyperoptimization and comparison with previous architectures, and focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
 
 ### Stage 1 - Basic CNN
-At the start of the project, every group member started building his basic CNN based on small architectures. In this case, we develop our architecture that focuses on the repetition of convolution and pooling layers, then exploring different patterns.
+At the start of the project, every group member started building his basic CNN based on small architectures. In this case, we developed our architecture that focuses on the repetition of convolution and pooling layers, then exploring different patterns.
 
 ### Stage 2 - VGG
 Then we started moving to more structured convolutional architectures through transfer learning, and we first adopted VGG architecture.
@@ -22,7 +22,7 @@ Most advanced models measured was the ones based on InceptionResNet and NASNetLa
 ### Stage 5 - Hybrid model
 Latest models built were based on the best deep encoder found and a heterogeneous model on top of it as an optimized classifier; we also visualized the given best deep transformation found of the images
 
-## Learning process
+## Summary
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed.
 
 | Stage | Description |
@@ -32,8 +32,8 @@ During the whole process learning rate was almost always equal to 1e-4, in gener
 | Stage 3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
 | Stage 4 | We increased images size to 299x299, we noticed fine tuned models were in general more performing than the others; also we tried higher resolution images up to 331x331 |
 
-## Measured performances
-Here is listed a summary of accuracy values observed
+## Performances
+Here is listed a summary of accuracy values measured
 
 | Architecture | Range |
 | :----: | :----: |
