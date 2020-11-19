@@ -7,19 +7,19 @@ The overall project is splitted in multiple stages, performed in parallel by eac
 
 Each stage is driven by some instance of deep learning architecture, performing also some hyperoptimization and comparison with previous architectures, and focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
 
-#### Stage 1 - Basic CNN
+### Stage 1 - Basic CNN
 At the start of the project, every group member started building his basic CNN based on small architectures. In this case, we develop our architecture that focuses on the repetition of convolution and pooling layers, then exploring different patterns.
 
-#### Stage 2 - VGG
+### Stage 2 - VGG
 Then we started moving to more structured convolutional architectures through transfer learning, and we first adopted VGG architecture.
 
-#### Stage 3 - Inception & ResNet
+### Stage 3 - Inception & ResNet
 More advanced architectures are tested, in particular Inception and ResNet models.
 
-#### Stage 4 - InceptionResNet & NASNetLarge
+### Stage 4 - InceptionResNet & NASNetLarge
 Most advanced models measured was the ones based on InceptionResNet and NASNetLarge architectures.
 
-#### Stage 5 - Hybrid model
+### Stage 5 - Hybrid model
 Optimal models measured were based on the best deep encoder found and SVM or Random Forest as an optimized classifier on top of it; we also visualized the given best deep transformation found of the images
 
 ## Learning process
@@ -47,14 +47,17 @@ Measured accuracy ranges on test set based on different architectures used:
 
 Our optimal model was an InceptionResNet encoder with avg pooling, dropout 0.6 and 3 softmax; we optimized the classifier (dropout + softmax) on top of optimal trained deep encoder with a SVM classifier, gaining +0.7 accuracy on test set
 
-![PCA](PCA.PNG)
-*2D PCA visualization of optimal deep encoder transformation*
+| ![](PCA.PNG) | 
+|:--:| 
+| *2D PCA visualization of optimal deep encoder transformation* |
 
-![t-SNE](t-SNE.PNG)
-*2D t-SNE visualization of optimal deep encoder transformation*
+| ![](t-SNE.PNG) | 
+|:--:| 
+| *2D t-SNE visualization of optimal deep encoder transformation* |
 
-![missclassified](missclassified.PNG)
-*2D informative projection of missclassified instances of SVM classifier*
+| ![](missclassified.PNG) | 
+|:--:| 
+| *2D informative projection of missclassified instances of SVM classifier* |
 
 ## Final considerations
 We have understood how important is the underlying deep learning architecture for the overall quality of the model: for example we found Inception architecture having high performance gap with previous architectures, mainly due to the Inception module giving better scaling semantics to images.
