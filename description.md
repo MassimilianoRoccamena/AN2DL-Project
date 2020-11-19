@@ -3,24 +3,27 @@ The project was made by Massimiliano Roccamena, Abednego Wamuhindo, Muhammad Irf
 
 ## Overview
 
-The overall project is splitted in multiple stages, performed in parallel by each member optimizing Colab GPU resources
+The overall project is splitted in multiple stages, performed in parallel by each member optimizing Colab GPU resources, grouped in an increasing complexity and temporal execution list
 
-Each stage is driven by some instance of deep learning architecture, performing also some hyperoptimization and comparison with previous architectures, and focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
+Each stage is driven by some instance of deep learning architecture
 
 1. Basic CNN
 2. VGG
 3. Inception & ResNet
 4. InceptionResNet & NASNetLarge
-5. Hybrid system
+
+In each stage wee also performed some hyperoptimization and comparison with previous architectures, focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
 
 In particular, we started by building our small CNN architectures from scratch focusing on the repetition of convolution and pooling layers, then exploring different patterns
 
 Then we started using transfer learning from stage 2 with VGG architecture
 
-In the end, we've taken the best deep encoder found and tried more general type of classifiers on top of it, and we also visualized best deep encoder's transformation on the training set
+In the last stage, we've taken the best deep encoder found and tried more general type of classifiers on top of it, and we also visualized best deep encoder's transformation on the training set
 
-## Learning
-During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed.
+5. Hybrid system
+
+## Preprocess and learning
+During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed
 
 | Stage | Description |
 | :----: | :----: |
@@ -72,6 +75,6 @@ Our optimal model was obtained by replacing the classifier (dropout + softmax) o
 We have understood how important is the underlying deep learning architecture for the overall quality of the problem solution
 - We have found Inception architectures having high performance gap with previous architectures, mainly due to the Inception module giving better scaling semantics to images.
 
-Also we can highlight that data augmentation and fine tuning can greatly impact the overall comprehension of the network of the problem
+Also we can highlight that data augmentation and fine tuning can greatly impact the overall comprehension of the network about the problem
 
 We also experienced how making an ensemble of deep learned features using high dropout leads to good learning of the problem
