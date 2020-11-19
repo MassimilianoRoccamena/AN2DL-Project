@@ -3,7 +3,7 @@ The project was made by Massimiliano Roccamena, Abednego Wamuhindo, Muhammad Irf
 
 ## Overview
 
-The overall project is splitted in multiple stages, performed in parallel by each member optimizing Colab GPU resources, grouped in an increasing complexity and temporal execution list
+The overall project is splitted in multiple stages, performed in parallel by each member, grouped in a list ordered by the model complexity and temporal execution
 
 Each stage is driven by some instance of deep learning architecture
 
