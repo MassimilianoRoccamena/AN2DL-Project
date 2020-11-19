@@ -31,6 +31,7 @@ During the whole process learning rate was almost always equal to 1e-4, in gener
 | Stage 2 | As soon as we used transfer learning we've tried also to hyperoptimize parameters such as fine tuning and encoder parameters; with more experience we find early stopping pretty much very effective; also we started exploring each specific encoder architecture preprocessing |
 | Stage 3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
 | Stage 4 | We increased images size to 299x299, but we also tried higher resolution images up to 331x331; we noticed fine tuned models were in general more performing than the others |
+| Stage 5 | We searched various heterogeneous models on best deep encoded data using crossvalidation and small hyperoptimizations; in the meanwhile we were hyperoptimizing previous architectures best models
 
 Here is reported a learning comparison visualization between some Inception (M1) and InceptionResNet (M2) based models
 
