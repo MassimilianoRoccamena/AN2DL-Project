@@ -7,22 +7,19 @@ The overall project is splitted in multiple stages, performed in parallel by eac
 
 Each stage is driven by some instance of deep learning architecture, performing also some hyperoptimization and comparison with previous architectures, and focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
 
-### Stage 1 - Basic CNN
-At the start of the project, every group member started building his basic CNN based on small architectures. In this case, we developed our architecture that focuses on the repetition of convolution and pooling layers, then exploring different patterns.
+1. Basic CNN
+2. VGG
+3. Inception & ResNet
+4. InceptionResNet & NASNetLarge
+5. Hybrid system
 
-### Stage 2 - VGG
-Then we started moving to more structured convolutional architectures through transfer learning, and we first adopted VGG architecture.
+In particular, we started by building our small architectures from scratch focusing on the repetition of convolution and pooling layers, then exploring different patterns
 
-### Stage 3 - Inception & ResNet
-More advanced architectures are tested, in particular Inception and ResNet models.
+Then we started using transfer learning from stage 2 with VGG architecture
 
-### Stage 4 - InceptionResNet & NASNetLarge
-Most advanced models measured was the ones based on InceptionResNet and NASNetLarge architectures.
+In the end, we've taken the best deep encoder found and tried more general type of classifiers on top of it, and we also visualized this deep learned transformation on the training set
 
-### Stage 5 - Hybrid model
-Latest models built were based on the best deep encoder found and a heterogeneous model on top of it as an optimized classifier; we also visualized the given best deep transformation found of the images
-
-## Summary
+## Learning
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed.
 
 | Stage | Description |
