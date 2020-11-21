@@ -5,14 +5,14 @@ The project was made by Massimiliano Roccamena, Abednego Wamuhindo, Muhammad Irf
 
 The overall project is splitted in multiple stages, performed in parallel by each member, grouped in a list ordered by the model complexity and temporal execution
 
-Each stage is driven by some instance of deep learning architecture
+Each stage is driven by some instance of deep learning architecture, focusing on searching for a good deep learning encoding of labeled images
 
 1. Basic CNN
 2. VGG
 3. Inception & ResNet
 4. InceptionResNet & NASNetLarge
 
-In each stage we also performed some hyperoptimization and comparison with previous architectures, focusing on searching for a good deep learning encoding of labeled images, as well as exploring different classifiers on top of it
+In each stage we also performed some hyperoptimization and comparison with previous architectures, as well as exploring different classifiers on top of it
 
 In particular, we started by building our small CNN architectures from scratch focusing on the repetition of convolution and pooling layers, then exploring different patterns
 
@@ -25,13 +25,17 @@ In the last stage, we've taken the best deep encoder found and tried more genera
 ## Preprocess and learning
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed
 
+Also fully connected classifier's weights were generally initialized with Xavier initialization
+
+Since tranfer learning is used, weights were almost always initialized with image-net competitions weights
+
 | Stage | Description |
 | :----: | :----: |
-| Stage 1 | We started focusing on early stopped learning, but also tried some longer convergence train or cross validation; also l2 regularization and dropout on classifier are tested to counter some overfitting; also data augmentation is tested from the start, and tuning image transformations parameters; images size were fixed at 255x255x3 |
+| Stage 1 | We started focusing on early stopped learning, but also tried some longer convergence train or cross validation; also l2 regularization and dropout on classifier are tested to counter some overfitting; also data augmentation is tested from the start, and tuning image transformations parameters; images size were fixed at 255x255 |
 | Stage 2 | As soon as we used transfer learning we've tried also to hyperoptimize parameters such as fine tuning and encoder parameters; with more experience we find early stopping pretty much very effective; also we started exploring each specific encoder architecture preprocessing |
 | Stage 3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
 | Stage 4 | We increased images size to 299x299, but we also tried higher resolution images up to 331x331; we noticed fine tuned models were in general more performing than the others |
-| Stage 5 | We searched various heterogeneous models on best deep encoded data using crossvalidation and small hyperoptimizations; in the meanwhile we were hyperoptimizing previous architectures best models
+| Stage 5 | We selected various heterogeneous models on best deep encoded data using crossvalidation and small hyperoptimizations; in the meanwhile we were hyperoptimizing previous architectures best models
 
 Here is reported a learning comparison visualization between some Inception (M1) and InceptionResNet (M2) based models
 
@@ -57,9 +61,11 @@ Here is listed a summary of categorical accuracy values measured on test set
 
 ## Optimal solution
 
-Our optimal neural network was an InceptionResNet encoder (fine tuned from 15th layer) with avg pooling at the output, then 0.6 dropout and 3 softmax; it was early stopped on validation loss and trained on augmented data with validation split 17.5%
+Our optimal neural network was an InceptionResNet encoder (fine tuned from 15th layer) with avg pooling at the output, then 0.6 dropout and 3 softmax; it was early stopped (patience 5) on validation loss and trained on augmented data with validation split 17.5%
 
-Our optimal model was obtained by replacing the classifier (dropout + softmax) on top of InceptionResNet encoder of previous network with an optimized SVM (also Random Forest), gaining +0.7% accuracy on test set
+We focused on making the fully connected classifier a simple transformation, forcing it to co-adapt on encoder output stacking high dropout on top of it, in order to make the encoder learn high quality semantics computations
+
+Our optimal model was obtained by replacing this classifier on top of InceptionResNet encoder of previous network with an optimized SVM (also Random Forest), gaining some accuracy on test set
 
 | ![](PCA.PNG) | 
 |:--:| 
@@ -79,4 +85,4 @@ We have understood how important is the underlying deep learning architecture fo
 
 Also we can highlight that data augmentation and fine tuning can greatly impact the overall comprehension of the network about the problem
 
-We also experienced how making an ensemble of deep learned features using high dropout leads to good learning of the problem
+We also experienced how making an ensemble of deep learned features using high dropout leads to good learning of the problem by the network
