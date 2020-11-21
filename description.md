@@ -3,7 +3,7 @@ The project was made by Massimiliano Roccamena, Abednego Wamuhindo, Muhammad Irf
 
 ## Overview
 
-The overall project is splitted in multiple stages, performed in parallel by each member, grouped in a list ordered by the model complexity and temporal execution
+The overall project is splitted in multiple stages, performed in parallel by each member, grouped in a list ordered by overall network complexity and expected performaces
 
 Each stage is driven by some instance of deep learning architecture, focusing on searching for a good deep learning encoding of labeled images
 
@@ -22,7 +22,7 @@ In the last stage, we've taken the best deep encoder found and tried more genera
 
 5. Hybrid system
 
-## Preprocess and learning
+## Preprocess and training
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed
 
 Also fully connected classifier's weights were generally initialized with Xavier initialization
