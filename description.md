@@ -50,11 +50,11 @@ This is a small history of our learning approach of the network, in temporal ord
 
 Here is reported a learning comparison visualization between some Inception (M1) and InceptionResNet (M2) based models
 
-| ![](imgs/cmp_train.PNG) | 
+| ![](cmp_train.png) | 
 |:--:| 
 | *training loss between M1 (orange) and M2 (red), with smoothing 0.2* |
 
-| ![](imgs/cmp_val.PNG) | 
+| ![](cmp_val.png) | 
 |:--:| 
 | *validation accuracy between M1 (blue) and M2 (azure), with smoothing 0.5* |
 
