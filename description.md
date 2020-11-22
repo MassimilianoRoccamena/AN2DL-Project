@@ -25,13 +25,15 @@ In the last stage, we've taken the best deep encoder found and tried more genera
 ## Preprocess and training
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed
 
-Also fully connected classifier's weights were generally initialized with Xavier initialization
+Also fully connected classifier's weights were generally initialized with Xavier initialization; since tranfer learning is used, transferred weights were almost always initialized with image-net competitions weights
 
-Since tranfer learning is used, weights were almost always initialized with image-net competitions weights
+Also leaky relu activation is tested in some configurations (expecially deep ones) and also l2 regularization and dropout on classifier are tested from the start to counter some overfitting
+
+This is a small history of our learning approach of the network, in temporal order
 
 | Stage | Description |
 | :----: | :----: |
-| Stage 1 | We started focusing on early stopped learning, but also tried some longer convergence train or cross validation; also l2 regularization and dropout on classifier are tested to counter some overfitting; also data augmentation is tested from the start, and tuning image transformations parameters; images size were fixed at 255x255 |
+| Stage 1 | We started focusing on early stopped learning, but also tried some longer convergence train or cross validation; images size were fixed at 255x255 |
 | Stage 2 | As soon as we used transfer learning we've tried also to hyperoptimize parameters such as fine tuning and encoder parameters; with more experience we find early stopping pretty much very effective; also we started exploring each specific encoder architecture preprocessing |
 | Stage 3 | We noticed using avg pooling on deep learned features in combination with high dropout was very effective; also augmentation was found very effective almost always |
 | Stage 4 | We increased images size to 299x299, but we also tried higher resolution images up to 331x331; we noticed fine tuned models were in general more performing than the others |
@@ -61,7 +63,7 @@ Here is listed a summary of categorical accuracy values measured on test set
 
 ## Optimal solution
 
-Our optimal neural network was an InceptionResNet encoder (fine tuned from 15th layer) with avg pooling at the output, then 0.6 dropout and 3 softmax; it was early stopped (patience 5) on validation loss and trained on augmented data with validation split 17.5%
+Our optimal neural network was an InceptionResNet encoder (fine tuned from 15th layer) with avg pooling at the output, then 0.8 dropout and 3 softmax; it was early stopped on validation loss and trained on augmented data with validation split 17.5%
 
 We focused on making the fully connected classifier a simple transformation, forcing it to co-adapt on encoder output stacking high dropout on top of it, in order to make the encoder learn high quality semantics computations
 
