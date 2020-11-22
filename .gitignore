@@ -5,6 +5,6 @@ data/*
 log/*
 results/*
 
-mining/*.ows.swp.p
-mining/models/*
-mining/*.csv
+hybrid/*.ows.swp.p
+hybrid/models/*
+hybrid/*.csv
