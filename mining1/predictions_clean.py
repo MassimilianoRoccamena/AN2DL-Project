@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-model_name = 'MLP'
-target_name = 'Neural Network'
+model_name = 'SVM'
+target_name = 'SVM'
 
 models_dir = 'models'
 predictions_file = 'test_predictions.csv'
