@@ -41,11 +41,11 @@ This is a small history of our learning approach of the network, in temporal ord
 
 Here is reported a learning comparison visualization between some Inception (M1) and InceptionResNet (M2) based models
 
-| ![](./imgs/cmp_train.PNG) | 
+| ![](imgs/cmp_train.PNG) | 
 |:--:| 
 | *training loss between M1 (orange) and M2 (red), with smoothing 0.2* |
 
-| ![](./imgs/cmp_val.PNG) | 
+| ![](imgs/cmp_val.PNG) | 
 |:--:| 
 | *validation accuracy between M1 (blue) and M2 (azure), with smoothing 0.5* |
 
@@ -69,15 +69,15 @@ We focused on making the fully connected classifier a simple transformation, for
 
 Our optimal model was obtained by replacing this classifier on top of InceptionResNet encoder of previous network with an optimized SVM (also Random Forest), gaining some accuracy on test set
 
-| ![](./imgs/PCA.PNG) | 
+| ![](PCA.PNG) | 
 |:--:| 
 | *2D PCA visualization of optimal deep encoder transformation* |
 
-| ![](./imgs/t-SNE.PNG) | 
+| ![](t-SNE.PNG) | 
 |:--:| 
 | *2D t-SNE visualization of optimal deep encoder transformation* |
 
-| ![](./imgs/missclassified.PNG) | 
+| ![](missclassified.PNG) | 
 |:--:| 
 | *2D informative projection of missclassified instances of optimal SVM classifier* |
 
