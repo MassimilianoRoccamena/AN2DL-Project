@@ -85,7 +85,7 @@ Our optimal model was obtained by replacing this classifier on top of InceptionR
 
 During final stages of the whole process we acknowledged a bug which make the model not reproducible: even if we seeded tensorflow and numpy from the start, as well as images generators, we didn't observed same learning functions on repetead instances of same model (but same images dataset), even with all (maybe needed) seeded version of nondeterministic functionalities invoked (for example seeded droput layer)
 
-We invite you to check (WIP) for original best model training notebook used (may be different dirs naming ex data1,log1), and also to use deep encoder checkpoint file with optimal hybrid classifier pickle file available at following link:
+We invite you to check best_solution.ipynb for original best model training notebook used (may be different dirs naming ex data1,log1), and also to use deep encoder checkpoint file with optimal hybrid classifier pickle file available at following link:
 
 (WIP)
 
