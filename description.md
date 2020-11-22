@@ -22,6 +22,15 @@ In the last stage, we've taken the best deep encoder found and tried more genera
 
 5. Hybrid system
 
+## Main files
+
+Here are presented main files used in overall project
+
+- homework1: main keras network training/testing notebook
+- deep_save: can be used to save deep encoded training/test data by specifing one saved keras network
+- deep_mine: orange file used for visualize and search for a hybrid classifier on top od deep encoded training data
+- classifier_predict: orange file to make test data predictions of previous classifer
+
 ## Preprocess and training
 During the whole process learning rate was almost always equal to 1e-4, in general it was the right amount needed
 
@@ -85,9 +94,9 @@ Our optimal model was obtained by replacing this classifier on top of InceptionR
 
 During final stages of the whole process we acknowledged a bug which make the model not reproducible: even if we seeded tensorflow and numpy from the start, as well as images generators, we didn't observed same learning functions on repetead instances of same model (but same images dataset), even with all (maybe needed) seeded version of nondeterministic functionalities invoked (for example seeded droput layer)
 
-We invite you to check best_solution.ipynb for original best model training notebook used (may be different dirs naming ex data1,log1), and also to use deep encoder checkpoint file with optimal hybrid classifier pickle file available at following link:
+We invite you to check best_solution.ipynb for original best model training notebook used (may be different dirs naming ex data1,log1), and also to use keras checkpoint files with optimal classifier pickle file available at following link
 
-(WIP)
+https://drive.google.com/drive/folders/1MD0Ymx2hepl8D4w_M-09IsIOydXWtuFC?usp=sharing
 
 ## Final considerations
 We have understood how important is the underlying deep learning architecture for the overall quality of the problem solution
