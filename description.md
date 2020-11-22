@@ -81,6 +81,14 @@ Our optimal model was obtained by replacing this classifier on top of InceptionR
 |:--:| 
 | *2D informative projection of missclassified instances of optimal SVM classifier* |
 
+### Important
+
+During final stages of the whole process we acknowledged a bug which make the model not reproducible: even if we seeded tensorflow and numpy from the start, as well as images generators, we didn't observed same learning functions on repetead instances of same model (but same images dataset), even with all (maybe needed) seeded version of nondeterministic functionalities invoked (for example seeded droput layer)
+
+We invite you to check (WIP) for original best model training notebook used, and also to use deep encoder checkpoint file with optimal hybrid classifier pickle file available at following link:
+
+(WIP)
+
 ## Final considerations
 We have understood how important is the underlying deep learning architecture for the overall quality of the problem solution
 - We have found Inception architectures having high performance gap with previous architectures, mainly due to the Inception module giving better scaling semantics to images.
