@@ -69,15 +69,15 @@ We focused on making the fully connected classifier a simple transformation, for
 
 Our optimal model was obtained by replacing this classifier on top of InceptionResNet encoder of previous network with an optimized SVM (also Random Forest), gaining some accuracy on test set
 
-| ![](PCA.PNG) | 
+| ![](PCA.png) | 
 |:--:| 
 | *2D PCA visualization of optimal deep encoder transformation* |
 
-| ![](t-SNE.PNG) | 
+| ![](t-SNE.png) | 
 |:--:| 
 | *2D t-SNE visualization of optimal deep encoder transformation* |
 
-| ![](missclassified.PNG) | 
+| ![](missclassified.png) | 
 |:--:| 
 | *2D informative projection of missclassified instances of optimal SVM classifier* |
 
