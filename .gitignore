@@ -1,10 +1,10 @@
 __pycache__/
 !*/.gitkeep
 
-data1/*
-log1/*
-results1/*
+data/*
+log/*
+results/*
 
-mining1/*.ows.swp.p
-mining1/models/*
-mining1/*.csv
+mining/*.ows.swp.p
+mining/models/*
+mining/*.csv
