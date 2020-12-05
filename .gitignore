@@ -4,7 +4,3 @@ __pycache__/
 data/*
 log/*
 results/*
-
-hybrid/*.ows.swp.p
-hybrid/models/*
-hybrid/*.csv
