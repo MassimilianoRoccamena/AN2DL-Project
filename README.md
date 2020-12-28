@@ -11,7 +11,7 @@ Early stages focus on implementing architectures for segmentation
 - Basic VGG
 - U-NET
 
-Latest stages focus on optimizing data preprocessing
+Latest stages focus on optimizing images processing
 
 - Data Augmentation
 - Tiling
