@@ -46,16 +46,17 @@ It works on resized 384x384 tiles, was trained without augmentation and with 1e-
 
 ![Test Segmentation](/OPT_MODEL.PNG)
 
+# Notebooks
+
+- tile and new dataset.ipynb: tiling preprocessing notebook
+- homework.ipynb: main training and testing notebook
+
 # Links
 
-Images Tile Preprocessing
-
-
-
-Main Notebook
-
-https://colab.research.google.com/drive/16o1Nodh-9TOOLcCKB3_v5tegJAtQkf05?usp=sharing
-
-Tiled Images
+Optimal model's checkpoints
 
 https://drive.google.com/drive/folders/1-C4T0kWcc6_p2Q3CpED3IVk-kOZiflOg
+
+Tiled dataset
+
+https://drive.google.com/file/d/1af8zaonCJmUGaDDxNVlyTWUsvmckqQKr/view
