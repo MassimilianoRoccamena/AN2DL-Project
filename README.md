@@ -18,7 +18,7 @@ Latest stages focus on optimizing images processing
 
 # Analyzing Data
 
-We started by analyzing strategies to tackle the problem: first of all we observed high resolution images, than we noticed that data was more structured than usual, in the sense that the collection of images was performed grouping by 2 different crops and 4 different teams, and so we could then be able to observe that teams data have unbalanced sizes and that one of the team obtained images from different perspective.
+We started by analyzing strategies to tackle the problem: first of all we observed high resolution images, than we noticed that data was more structured than usual, in the sense that the collection of images was performed grouping by 2 different crops and 4 different teams, and then we discovered that teams data have unbalanced sizes and that one of the team obtained images from different perspective.
 
 So we discussed on how to exploit also this knowledge of the problem: at first we found that we could actually split one model in one combination of multiple models capturing different point of view of problem's semantic, for example by optimizing one model for crop or reserve one model for the team with different capturing perspective.
 
