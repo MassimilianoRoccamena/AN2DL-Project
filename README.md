@@ -6,7 +6,7 @@ The project was made by Massimiliano Roccamena, Abednego Wamuhindo, Muhammad Irf
 
 The overall project is splitted in multiple stages, performed in parallel by each member by maximimizing the overall performances of previous stages.
 
-Early stages focus on implementing architectures for segmentation
+Early stages focus on implementing architectures for segmentation.
 
 - Basic VGG
 - U-NET
@@ -42,7 +42,7 @@ First of all we introduced some augmentation to original data and measured diffe
 
 Our optimal model was based on a 400x400 images tiling preprocessing
 
-It works on resized 384x384 tiles, was trained without augmentation and with 1e-4 learning rate, and was early stopped on validation loss at iteration 8
+It works on resized 384x384 tiles, it was trained without augmentation and with 1e-4 learning rate, and it was early stopped on validation loss at iteration 8.
 
 ![Test Segmentation](/OPT_MODEL.PNG)
 
