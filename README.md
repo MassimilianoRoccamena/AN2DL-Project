@@ -36,4 +36,26 @@ Next we decided to implement one very good segmentation architecture, so we sele
 
 After already getting very good results, we decided to switch our attention to optimizing the data, as well as to adapt our model overall behavior.
 
-First of all we introduced some augmentation to original data and measured differences for both models, then we exploited the fact that images were high resolutives to tile (augmented as well) this big images in order to boost data size and provide brand new prediction semantics to the model, which now use network predictive power on multiple tiles of the input for combining them in the overall big segmentation.
+First of all we introduced some augmentation to original data and measured differences for both models, then we exploited the fact that images were high resolutives to tile this big images in order to boost dataset size and provide brand new prediction semantics to the model, which now use network predictive power on multiple tiles of the input for combining them in the overall big segmentation; we also augmented tiles but it's not really improving, maybe because we already have lot of tiles.
+
+# Optimal Model
+
+Our optimal model was based on a 400x400 images tiling preprocessing
+
+It works on resized 384x384 tiles, was trained without augmentation and with 1e-4 learning rate, and was early stopped on validation loss at iteration 8
+
+![Test Segmentation](/OPT_MODEL.PNG)
+
+# Links
+
+Images Tile Preprocessing
+
+
+
+Main Notebook
+
+https://colab.research.google.com/drive/16o1Nodh-9TOOLcCKB3_v5tegJAtQkf05?usp=sharing
+
+Tiled Images
+
+https://drive.google.com/drive/folders/1-C4T0kWcc6_p2Q3CpED3IVk-kOZiflOg
