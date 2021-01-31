@@ -6,57 +6,49 @@ The project was made by Massimiliano Roccamena, Abednego Wamuhindo, Muhammad Irf
 
 The overall project is splitted in multiple stages, performed in parallel by each member by maximimizing the overall performances of previous stages.
 
-Early stages focus on implementing architectures for segmentation.
+Early stages focus on implementing basic architectures for the problem
 
-- Basic VGG
-- U-NET
+- VGG + LSTM
+- ResNet + Bidirectional LSTM
 
-Latest stages focus on optimizing images processing
+Middle stages focus on a (stacked) visual attention mechanism (inspired by https://arxiv.org/pdf/1511.02274.pdf, revisited)
 
-- Data Augmentation
-- Tiling
+- VGG + LSTM + Visual Attention
+- ResNet + Bidirectional LSTM + SAN
 
-# Analyzing Data
+Latest stages focus on better language modelling using Transformer
 
-We started by analyzing strategies to tackle the problem: first of all we observed high resolution images, than we noticed that data was more structured than usual, in the sense that the collection of images was performed grouping by 2 different crops and 4 different teams, and then we discovered that teams data have unbalanced sizes and that one of the team obtained images from different perspective.
-
-So we discussed on how to exploit also this knowledge of the problem: at first we found that we could actually split one model in one combination of multiple models capturing different point of view of problem's semantic, for example by optimizing one model for crop or reserve one model for the team with different capturing perspective.
-
-Then we thought that models (we planned to use) themselves should be able to distinguish between above semantics, that this startegy could be much more time consuming and also that the models can exploit some data preprocessing which should (with other things) greatly help the network on these concerns.
+- ResNet + Transformer
+- ResNet + Transformer + SAN
 
 # Summary
 
-We first processed train set shuffling data by team and crop, then we identified 20% of it as a validation set.
+The basic difference between previous project was that VQA has 2 different type of data (text + image), so we exploited 2 mechanism to merge language and vision network: concatenation and vision-by-language attention.
 
-We started training some models to test different architectures on our current configurations, by early stopping on validation loss and (manually) optimizing on IoU metric; we always used a learning rate of 1e-4.
+We first processed train set by shuffling data and preprocessing images for transfered deep encoding (no data augmentation, we have lot of images and don't want to loose some spatial info maybe asked by the questions).
 
-We implemented a first solution using a basic segmentation deep learning architecture made by a VGG encoder and a decoder realized by the usual convolution + upsampling architecture.
+We started creating some models to test different architectures, by early stopping on validation loss and (manually) optimizing on validation loss metric; we first kept a learning rate of 1e-4, and then we also implemented an adaptive learning rate to fully exploit final epoches (by exponential decay from 1/2^epoch to 4/5^epoch).
 
-Next we decided to implement one very good segmentation architecture, so we selected U-NET architecture to handle the job from now on.
+We implemented a first solution by encoding images using pretrained fine tuned VGG/ResNet (with GAP) and encoding questions using Embedding + LSTM (1 LSTM layer, then tried to stack them up to 3, then Bidirectional + forward LSTM); to classify the model we merged the 2 encoding by Concatenation. In general Bidirectional + forward LSTM was the best.
 
-After already getting very good results, we decided to switch our attention to optimizing the data, as well as to adapt our model overall behavior.
+Next we noticed that maybe some spatial information of the question can be lost by GAP, so we tried a merging strategy using an attention mechanism: we removed GAP (so we have high level spatial regions of the image) and we query visual values of the regions by encoded question key; we also tried stacking some of this attentions (as in the original paper) but we found less performances of just concatenating GAP; in general this visual attention was found less performant, we concluded because questions were not very difficult to be understood in the image space, no reasoning like "what is sitting in the basket in the bycicle?" but just something like "who looks happier?" or "what is the man doing?".
 
-First of all we introduced some augmentation to original data and measured differences for both models, then we exploited the fact that images were high resolutives to tile this big images in order to boost dataset size and provide brand new prediction semantics to the model, which now use network predictive power on multiple tiles of the input for combining them in the overall big segmentation; we also augmented tiles but it's not really improving, maybe because we already have lot of tiles.
+Finally we trained our final architectures using ResNet + Concatenation (using previous conclusions) for image encoding and by using TokeAndPositionEmbedding + Transformer (first 1 Transformer, then stacking up to 6, then by stacking 3 + forward LSTM) for question encoding.
 
 # Optimal Model
 
-Our optimal model was based on a 400x400 images tiling preprocessing
+Our optimal model was based on:
 
-It works on resized 384x384 tiles, it was trained without augmentation and with 1e-4 learning rate, and it was early stopped on validation loss at iteration 8.
-
-![Test Segmentation](/OPT_MODEL.PNG)
+- image (size 299x299) encoding using fine tuned (from layer 130) ResNet with Global Averaging Pooling and 0.1 dropout.
+- question encoding using 3 stacked Transformer encoder with 40 dimensional embeddings and 8 attention heads each.
+- softmax classifier on 800 dimensional linear transformation of concatenated encodings.
 
 # Notebooks
 
-- tile and new dataset.ipynb: tiling preprocessing notebook
-- homework.ipynb: main training and testing notebook
+- homework.ipynb: main training, testing and exporting notebook
 
 # Links
 
 Optimal model's checkpoints
 
-https://drive.google.com/drive/folders/1-C4T0kWcc6_p2Q3CpED3IVk-kOZiflOg
-
-Tiled dataset
-
-https://drive.google.com/file/d/1af8zaonCJmUGaDDxNVlyTWUsvmckqQKr/view
+[LINK]
