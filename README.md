@@ -34,6 +34,7 @@ We implemented a first solution by encoding images using pretrained fine tuned V
 Next we noticed that maybe some spatial information of the question can be lost by GAP, so we tried a merging strategy using an attention mechanism: we removed GAP (so we have high level spatial regions of the image) and we query visual values of the regions by encoded question key; we also tried stacking some of this attentions (as in the original paper) but we found less performances of just concatenating GAP; in general this visual attention was found less performant, we concluded because questions were not very difficult to be understood in the image space, no reasoning like "what is sitting in the basket in the bycicle?" but just something like "who looks happier?" or "what is the man doing?".
 
 Finally we trained our final architectures using ResNet + Concatenation (using previous conclusions) for image encoding and by using TokeAndPositionEmbedding + Transformer (first 1 Transformer, then stacking up to 6, then by stacking 3 + forward LSTM) for question encoding.
+Here are the final parameters of the model we use : learning rate of 1e-3 and the adaptative learning rate as described above, batchsize of 80 and a validation set of 17%.
 
 # Optimal Model
 
@@ -51,4 +52,4 @@ Our optimal model was based on:
 
 Optimal model's checkpoints
 
-[LINK]
+https://drive.google.com/drive/folders/109pw3mQLsPUPxIFEvAqZp_KUDMtGR5H6?usp=sharing
